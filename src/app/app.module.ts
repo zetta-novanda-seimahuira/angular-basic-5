@@ -15,6 +15,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
 import { FormsModule } from '@angular/forms';
+import { RouterModule, Routes } from '@angular/router';
+
+const routes: Routes = [
+  {path: '', component:AppComponent},
+  {path: 'list', component:CardListComponent}
+];
 
 @NgModule({
   declarations: [
@@ -33,7 +39,8 @@ import { FormsModule } from '@angular/forms';
     MatCardModule,
     MatButtonModule,
     MatGridListModule,
-    FormsModule
+    FormsModule,
+    RouterModule.forRoot(routes)
   ],
   providers: [],
   bootstrap: [AppComponent]

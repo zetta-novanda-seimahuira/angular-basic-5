@@ -2,10 +2,12 @@ export class AccountsService {
     accounts = [
         {
           name: 'Master Account',
+          age: 23,
           status: 'active'
         },
         {
           name: 'Testaccount',
+          age: 23,
           status: 'inactive'
         },
         {
