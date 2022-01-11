@@ -5,20 +5,23 @@ import { AccountsService } from './account.service';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [AccountsService]
+  // providers: [AccountsService]
 })
 export class AppComponent implements OnInit {
+  ngOnInit(): void {
+   
+  }
   title = 'angular-basic-5';
-  accounts: {name: string, status:string}[] = [];
+  // accounts: {name: string, status:string}[] = [];
 
-  constructor(private accountsService: AccountsService) {}
+  // constructor(private accountsService: AccountsService) {}
 
-  ngOnInit() {
-    this.accounts = this.accountsService.accounts;
-  }
+  // ngOnInit() {
+  //   this.accounts = this.accountsService.accounts;
+  // }
 
-  onUpdateAllStatus(status:string){
-    this.accountsService.updateAllStatus(status)
-  }
+  // onUpdateAllStatus(status:string){
+  //   this.accountsService.updateAllStatus(status)
+  // }
 
 }

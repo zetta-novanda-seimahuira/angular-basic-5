@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { CardListComponent } from './card-list/card-list.component';
-import { CardComponent } from './card/card.component';
+import { CardComponent } from './card-list/card/card.component';
 import { FormComponent } from './form/form.component';
 
 import {BrowserAnimationsModule} from 

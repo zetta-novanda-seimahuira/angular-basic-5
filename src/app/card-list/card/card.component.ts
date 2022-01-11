@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { AccountsService } from '../account.service';
-import { LoggingService } from '../logging.service';
+import { AccountsService } from '../../account.service';
+import { LoggingService } from '../../logging.service';
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
