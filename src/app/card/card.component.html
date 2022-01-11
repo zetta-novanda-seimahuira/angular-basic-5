@@ -1,0 +1,11 @@
+<div class="my-5">
+  <mat-card class="example-card">
+    <mat-card-title>{{account.name }}</mat-card-title>
+    <mat-card-content>This account is {{account.status}}</mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="onSetTo('active')">Set to 'active'</button>
+      <button mat-raised-button color="primary" (click)="onSetTo('inactive')">Set to 'inactive'</button>
+      <button mat-raised-button color="primary" (click)="onSetTo('unknown')">Set to 'unknown'</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
