@@ -2,7 +2,6 @@
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
-          <app-form></app-form >
           <hr>
   
           <button mat-raised-button color="primary" (click)="onUpdateAllStatus('active')">Set All to 'active'</button>
@@ -13,6 +12,7 @@
             *ngFor="let acc of accounts; let i = index"
             [account]="acc"
             [id]="i"
+            routerLink="/detail/{{acc.id}}"
             ></app-card>
         </div>
       </div>

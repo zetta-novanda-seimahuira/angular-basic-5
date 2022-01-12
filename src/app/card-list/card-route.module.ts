@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Routes } from '@angular/router';
-import { CardComponent } from './card/card.component';
+import { RouterModule, Routes } from '@angular/router';
+import { CardListComponent } from './card-list.component';
+import { DetailCardComponent } from './detail-card/detail-card.component';
 
-const routes: Routes = [
-  {path: 'detail/:id', component:CardComponent}
+const routes: Routes = [{
+  path: '',
+  component: CardListComponent
+},
+{
+  path: 'detail/:id',
+  component: DetailCardComponent
+}
 ];
 
 @NgModule({
-  declarations: [],
-  imports: [
-    CommonModule
-  ]
+    imports: [RouterModule.forChild(routes)],
+    exports: [RouterModule]
 })
-export class AppRouteModule { }
+export class CardRouteModule { }

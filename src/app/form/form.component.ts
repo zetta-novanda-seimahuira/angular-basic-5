@@ -15,8 +15,8 @@ export class FormComponent  {
 
 
   onCreateAccount(accountName: string, accountStatus: string) {
-    this.accountService.addAccount( accountName,accountStatus);
-    this.loggingService.logStatusChange(accountStatus);
+    // this.accountService.addAccount( accountName,accountStatus);
+    // this.loggingService.logStatusChange(accountStatus);
   }
 
 
