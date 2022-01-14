@@ -1,0 +1,24 @@
+
+{    "form": {
+    "id": "Numéro d'identification",
+    "name" : "nom",
+     "âge": "âge",
+     "gender": "sexe",
+     "email": "email",
+     "phone": "téléphoner",
+     "matrialStat": "métiers",
+     "professions": "statmarital",
+     "road": "route",
+     "number": "numéro",
+     "region": "région",
+     "city": "ville",
+     "country": "pays",
+     "submit": "soumettre",
+      "address": "adresse",
+      "add_user" : "ajouter un utilisateur"
+    
+}
+
+}
+
+

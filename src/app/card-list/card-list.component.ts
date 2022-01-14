@@ -9,17 +9,18 @@ import { AccountsService } from '../account.service';
 })
 export class CardListComponent implements OnInit {
 
-  accounts: {name: string, status:string}[] = [];
+  accounts: {id:number, }[] = [];
 
   constructor(private accountsService: AccountsService) {}
 
   ngOnInit() {
     this.accounts = this.accountsService.accounts;
+    console.log(this.accounts)
   }
 
-  onUpdateAllStatus(status:string){
-    this.accountsService.updateAllStatus(status)
-  }
+  // onUpdateAllStatus(status:string){
+  //   this.accountsService.updateAllStatus(status)
+  // }
 
 
 }

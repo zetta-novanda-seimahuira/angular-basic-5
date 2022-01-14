@@ -1,45 +1,113 @@
-import { Observable } from "rxjs";
+import { Injectable } from "@angular/core";
 
 export class AccountsService {
-  
-  
+  // accountAdd: EventEmitter
     accounts = [
         {
-          id: 1,
-          name: 'Master Account',
+          id: 1234556,
+          name: 'Jhon ',
           age: 23,
-          address: 'indonesia',
-          status: 'active'
+          gender: 'male',
+          professions: 'butcher',
+          maritalStat: 'single',
+          address:
+            {
+              road: 'Sagittis Road',
+              number: 5,
+              region: 'Ríos',
+              city: 'sidney',
+              country: 'Australia',
+          }
         },
         {
-          id: 2,
-          name: 'Testaccount',
-          age: 23,
-          address: 'indonesia',
-          status: 'inactive'
+          id: 1234557,
+          name: 'Zenaida Carey ',
+          age: 29,
+          gender: 'female',
+          professions: 'teacher',
+          maritalStat: 'married',
+          address: 
+            {
+              road: 'Sagittis Road',
+              number: 5,
+              region: 'Ríos',
+              city: 'sidney',
+              country: 'Australia',
+          }
         },
-        {
-          id: 3,
-          name: 'Hidden Account',
-          age: 23,
-          address: 'indonesia',
-          status: 'unknown'
-        }
       ];
 
-      addAccount(name:string, status:string, age:number, id:number, address:string){
-        this.accounts.push({name: name, status:status, age: age, id:id, address:address});
+      account(userData){
+      if (userData){
+        this.accounts.push(userData)
       }
+    }
+
+    getDataId(id: number) {
+      return this.accounts.find(acc => acc.id == id)
+    }
+
+      // addAccount(id:number, name:string, age: number, gender:string, professions:string, maritalStat:string, road:string, number:number, region:string, city:string, country:string  ){
+      //   this.accounts.push({id:id, name: name, age: age, gender:gender, professions:professions, maritalStat:maritalStat, [address]:address.name });
+      // }
+
+      // addAccount(id: number, name: string, age: number, gender:string, professions: string, maritalStat: string, road: string, number: number, region: string, city: string, country: string): void {
+      //   const account = {
+      //     id, name, age, gender, professions, maritalStat, address: [
+      //           {road},
+      //           {number},
+      //           {region},
+      //           {city},
+      //           {country}
+      //     ]
+      //   };
+      //   this.accounts.push(account);
+      // }
+
+    // interface Account {
+    //   id: number;
+    //   name: string;
+    //   age: number;
+    //   gender: string;
+    //   professions: string;
+    //   maritalStat: string;
+    //   address:
+    //     {
+    //       road: string;
+    //       number: number;
+    //       region: string;
+    //       city: string;
+    //       country: string;
+    //   }
+    // }
+
+    // addAccount(id: number, name: string, age: number, gender:string, professions: string, maritalStat: string, road: string, number: number, region: string, city: string, country: string): void {
+    //   const account = {
+    //     id, name, age, gender, professions, maritalStat, address: [
+    //           {road},
+    //           {number},
+    //           {region},
+    //           {city},
+    //           {country}
+    //     ]
+    //   };
+    //   this.accounts.push(account);
+    // }
+
+    
+
+    // addAccount(account: Account){
+    //   this.accounts = [...this.accounts, account];
+
+    // }
 
       updateStatus(id:number, status:string){
-        this.accounts[id].status = status;
+        // this.accounts[id].status = status;
     }
     updateAllStatus(status:string){
-      this.accounts.map(item => {
-        this.accounts[item.status = status]
-      })
+      // this.accounts.map(item => {
+      //   this.accounts[item.status = status]
+      // })
     }
-      getData(id: number) {
-        return this.accounts.find(acc => acc.id == id)
-      }
+     
 }

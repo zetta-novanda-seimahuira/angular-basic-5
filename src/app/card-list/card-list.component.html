@@ -1,13 +1,10 @@
+<!-- <app-form></app-form> -->
 <div class="mat-app-background">
     <div class="container">
       <div class="row">
         <div class="col-xs-12 col-md-8 col-md-offset-2">
+          <button mat-raised-button color="primary" routerLink="/list/adduser">Add User</button>
           <hr>
-  
-          <button mat-raised-button color="primary" (click)="onUpdateAllStatus('active')">Set All to 'active'</button>
-          <button mat-raised-button color="primary" (click)="onUpdateAllStatus('inactice')">Set All to 'inactive'</button>
-          <button mat-raised-button color="primary" (click)="onUpdateAllStatus('unknown')">Set All to 'unknown'</button>
-  
           <app-card
             *ngFor="let acc of accounts; let i = index"
             [account]="acc"
@@ -19,3 +16,5 @@
     </div>
   </div>
   
+
+ 

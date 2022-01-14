@@ -10,10 +10,14 @@ import { AccountsService } from 'src/app/account.service';
 })
 export class DetailCardComponent implements OnInit {
 
+  dataComponent :any;
   constructor(
     private route:ActivatedRoute,
     private accountService:AccountsService
-  ) { }
+  ) { 
+    this.dataComponent = this.accountService.getDataId
+
+  }
 
   ngOnInit(): void {
     this.getData()
@@ -23,7 +27,7 @@ export class DetailCardComponent implements OnInit {
   getData(){
     const cardId = this.route.snapshot.paramMap.get('id');
     const intString = Number(cardId)
-    this.myaccount = this.accountService.getData(intString)
+    this.myaccount = this.accountService.getDataId(intString)
     console.log(this.myaccount)
     
   }

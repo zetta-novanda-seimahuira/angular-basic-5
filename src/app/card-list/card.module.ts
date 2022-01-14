@@ -11,19 +11,32 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatGridListModule } from '@angular/material/grid-list';
 import {MatSelectModule} from '@angular/material/select';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { DetailCardComponent } from './detail-card/detail-card.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './form/form.component';
+import { TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { Router, RouterModule } from '@angular/router';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
     CardListComponent,
     CardComponent,
-    DetailCardComponent
+    DetailCardComponent,
+    FormComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    RouterModule,
+    TranslateModule,
     MatCardModule,
     MatButtonModule,
     CardRouteModule,
@@ -32,10 +45,21 @@ import { HttpClientModule } from '@angular/common/http';
     MatInputModule,
     MatSelectModule,
     MatGridListModule,
-    FormsModule,
     BrowserModule,
-    HttpClientModule
+    HttpClientModule, 
     
+    RouterModule
+  ],
+  exports: [
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule, 
+    RouterModule
+
   ]
 })
 export class CardListModule { }

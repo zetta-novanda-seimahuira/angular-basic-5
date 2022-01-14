@@ -16,12 +16,12 @@ export class CardComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  @Input() account: {name: string, status: string};
+  @Input() account: {name: string, age: string, gender:string };
   @Input() id: number;
 
   onSetTo(status: string) {
-   this.accountService.updateStatus(this.id, status)
-    this.loggingService.logStatusChange(status);
+  //  this.accountService.updateStatus(this.id, status)
+    // this.loggingService.logStatusChange(status);
   }
 
 }

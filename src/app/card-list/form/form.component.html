@@ -1,0 +1,165 @@
+<div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+
+      <button mat-raised-button color="primary"type="submit">Back</button> 
+      <select #langSelect (change)="translate.use(langSelect.value)">
+        <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+      </select>
+      <h1>{{ 'form.add_user' | translate }} </h1>
+        <form [formGroup]="userForm" (ngSubmit)="onCreateAccount()">
+        
+            <mat-form-field class="mx-5" [style.width.%]=100 >
+              <mat-label>{{ 'form.name' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.name' | translate }}" type="text" appearance="fill" formControlName="name">
+              <span
+              *ngIf="!userForm?.get('name')?.valid && userForm?.get('name')?.touched"
+              > Please Enter a Valid Username
+              </span>
+            </mat-form-field> 
+
+            <mat-form-field class="mx-5"  >
+              <mat-label>{{ 'form.gender' | translate }}</mat-label>
+              <mat-select placeholder="gender" formControlName="gender" appearance="fill">
+                <div *ngFor="let gender of genders">
+                  <mat-option [value]="gender">{{gender}}</mat-option>
+                </div>
+                <span
+                *ngIf="!userForm?.get('gender')?.valid && userForm?.get('gender')?.touched" class="help-block"
+                > Please Choose Gender
+                </span>
+              </mat-select>
+            </mat-form-field> 
+
+            <mat-form-field class="mx-5" >
+              <mat-label>{{ 'form.age' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.age' | translate }}" type="number" appearance="fill" formControlName="age">
+              <span
+              *ngIf="!userForm?.get('age')?.valid && userForm?.get('age')?.touched" class="help-block"
+              > Please Enter a Valid Age
+              </span>
+            </mat-form-field>
+            
+            <mat-form-field class="mx-5" >
+              <mat-label>{{ 'form.id' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.id' | translate }} "type="number" appearance="fill" formControlName="id">
+              <span
+              *ngIf="!userForm?.get('id')?.valid && userForm?.get('id')?.touched" class="help-block"
+              > Please Enter a ID
+              </span>
+            </mat-form-field><br>
+
+            <mat-form-field class="mx-5" >
+              <mat-label>{{ 'form.email' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.email' | translate }} "type="string" appearance="fill" formControlName="email">
+              <span
+              *ngIf="!userForm?.get('email')?.valid && userForm?.get('email')?.touched" class="help-block"
+              > Email
+              </span>
+            </mat-form-field>
+
+            <mat-form-field class="mx-5" >
+              <mat-label>{{ 'form.phone' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.phone' | translate }} "type="string" appearance="fill" formControlName="phone">
+              <span
+              *ngIf="!userForm?.get('phone')?.valid && userForm?.get('phone')?.touched" class="help-block"
+              > Minimum length 6
+              </span>
+            </mat-form-field>
+
+            <mat-form-field class="mx-5" >
+              <mat-label>{{ 'form.professions' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.professions' | translate }}" type="text" appearance="fill" formControlName="professions">
+              <span
+              *ngIf="!userForm?.get('professions')?.valid && userForm?.get('professions')?.touched" class="help-block"
+              > Please Enter a Valid Data
+              </span>
+            </mat-form-field> 
+
+            <mat-form-field class="mx-5"  >
+              <mat-label>{{ 'form.maritalStat' | translate }}</mat-label>
+              <input matInput placeholder="{{ 'form.maritalStat' | translate }}" type="text" formControlName="maritalStat" appearance="fill" formControlName="maritalStat"> 
+              <span
+              *ngIf="!userForm?.get('maritalStat')?.valid && userForm?.get('maritalStat')?.touched" class="help-block"
+              > Please Enter  Matrial status
+              </span>
+            </mat-form-field> <br> 
+
+
+            <h2>{{ 'form.address' | translate }}</h2>
+            <!-- <ng-container formGroupName="address"> -->
+              <div formGroupName="address">
+
+              <mat-form-field class="mx-5" >
+                <mat-label>{{ 'form.road' | translate }} </mat-label>
+                <input matInput placeholder="Road" type="text" appearance="fill" formControlName="road">
+                <span
+                *ngIf="!userForm?.get('road')?.valid && userForm?.get('road')?.touched" class="help-block"
+                > Please Enter a Valid Data
+                </span>
+              </mat-form-field> 
+  
+              <mat-form-field class="mx-5" >
+                <mat-label>{{ 'form.number' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'form.number' | translate }}" type="number" appearance="fill" formControlName="number">
+                <span
+                *ngIf="!userForm?.get('number')?.valid && userForm?.get('number')?.touched" class="help-block"
+                > Please Enter a Number
+                </span>
+              </mat-form-field> 
+  
+              <mat-form-field class="mx-5" >
+                <mat-label>{{ 'form.city' | translate }} </mat-label>
+                <input matInput placeholder="{{ 'form.city' | translate }}" type="text" appearance="fill" formControlName="city">
+                <span
+                *ngIf="!userForm?.get('city')?.valid && userForm?.get('city')?.touched" class="help-block"
+                > Please Enter a Valid Data
+                </span>
+              </mat-form-field> 
+  
+              <mat-form-field class="mx-5" >
+                <mat-label>{{ 'form.region' | translate }}</mat-label>
+                <input matInput placeholder="{{ 'form.region' | translate }}" type="text" appearance="fill" formControlName="region">
+                <span
+                *ngIf="!userForm?.get('region')?.valid && userForm?.get('region')?.touched" class="help-block"
+                > Please Enter a Valid Data
+                </span>
+              </mat-form-field> 
+  
+              <mat-form-field class="mx-5" >
+                <mat-label>{{ 'form.country' | translate }} </mat-label>
+                <input matInput placeholder="{{ 'form.country' | translate }}" type="text" appearance="fill" formControlName="country">
+                <span
+                *ngIf="!userForm?.get('country')?.valid && userForm?.get('country')?.touched" class="help-block"
+                > Please Enter a Valid Data
+                </span>
+              </mat-form-field> 
+            </div>
+            <!-- </ng-container> -->
+            
+            
+            <br>
+            <button 
+            mat-raised-button 
+            color="primary"
+           type="submit"
+            >{{ 'form.submit' | translate }}</button> 
+            <br>
+          </form>
+    </div>
+</div>
+
+
+
+ <!-- id: 1234556,
+          name: 'Jhon ',
+          age: 23,
+          gender: 'male',
+          professions: 'butcher',
+          maritalStat: 'single',
+          address:
+            {
+              road: 'Sagittis Road',
+              number: 5,
+              region: 'Ríos',
+              city: 'sidney',
+              country: 'Australia', -->

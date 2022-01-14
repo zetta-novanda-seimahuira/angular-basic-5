@@ -1,11 +1,16 @@
 <div class="my-5">
     <mat-card class="example-card">
-      <mat-card-title></mat-card-title>
       <mat-card-content>
-          <h3>This account is {{myaccount?.name}}</h3>
-          <p>status : {{myaccount?.status}}</p>
-          <p>address: {{myaccount?.address}}</p>
-          <p>age: {{myaccount?.age}}</p>
+          <h2>{{myaccount.name}}</h2>
+          <p>ID Number: {{myaccount.id}}</p>
+          <p>Age: {{myaccount.age}}</p>
+          <p>Gender: {{myaccount.gender}}</p>
+          <p>Professions: {{myaccount.professions}}</p>
+          <p>professions: {{myaccount.gender}}</p>
+          <p>marital status: {{myaccount. maritalStat}}</p>
+          <p>Address: </p>
+          <p>{{myaccount.address.road}}, num. {{myaccount.address.number}}, {{myaccount.address.city}}, {{myaccount.address.region}}, {{myaccount.address.country}}</p>
+
     </mat-card-content>
       <mat-card-actions>
         

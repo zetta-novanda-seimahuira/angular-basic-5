@@ -1,0 +1,24 @@
+
+{    "form": {
+      "id": "ID Number",
+      "name": "name",
+      "age": "age",
+      "gender": "gender",
+      "email": "mail",
+      "phone": "phone",
+      "professions": "professions",
+      "maritalStat":   "maritalStat", 
+      "road": "road",
+      "number":  "road",
+      "region": "region",
+      "city": "city",
+      "country":  "country",
+      "submit": "submit",
+      "address": "address",
+      "add_user" : "Add User"
+  }
+ 
+  
+
+  
+}
