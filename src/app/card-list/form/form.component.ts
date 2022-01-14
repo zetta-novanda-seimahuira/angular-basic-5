@@ -4,8 +4,13 @@ import { AccountsService } from '../../account.service';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { TranslateService } from '@ngx-translate/core';
 import { RouterLink } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { routes } from 'src/app/app-routing.module';
 import {Location} from '@angular/common';
+import { SwalPortalTargets } from '@sweetalert2/ngx-sweetalert2';
+import Swal from 'sweetalert2';
+
+
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
@@ -13,26 +18,32 @@ import {Location} from '@angular/common';
   providers: [AccountsService]
 })
 export class FormComponent implements OnInit  {
-  param = {value: 'world'};
+ 
+  dataComponent :any;
   // @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
   constructor(
               private accountService: AccountsService,
               private fb:FormBuilder,
+              private route:ActivatedRoute,
               public translate:TranslateService,
+              public readonly swalTargets: SwalPortalTargets,
               private _location: Location
               ){
                 translate.setDefaultLang('en'),
                 translate.addLangs(['en', 'fr']);
-
+                
                 const browserLang = translate.getBrowserLang();
                 translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
               }
   
   userForm: FormGroup;
   genders = ['male', 'female'];
+  statusForm:string
 
 
   ngOnInit(){
+
+
     this.userForm = new FormGroup({
       'id': new FormControl(null, Validators.required),
       'name': new FormControl(null, Validators.required),
@@ -50,14 +61,49 @@ export class FormComponent implements OnInit  {
       'country': new FormControl(null, Validators.required),
       })
     })
+
+    this.userForm.statusChanges.subscribe(
+      (status) => console.log(status)
+    )
   }
-
-
     onCreateAccount() {
-    this.accountService.account(this.userForm.value);
-    this._location.back();
+      if(this.userForm.valid){
+        this.accountService.account(this.userForm.value);
+        Swal.fire('Success')
+        console.log(this.statusForm);
+      } else {
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...',
+          text: ' fields are not valid!',
+        })
+      }
+    
     console.log(this.userForm);
     console.log(this.accountService.accounts);
   }
+
+    updateAccount() {
+      const cardId = this.route.snapshot.paramMap.get('id');
+      const intString = Number(cardId)
+      const data = this.accountService.getDataId(intString)
+      this.userForm.patchValue( {
+        'id': data.id,
+        'name': data.name,
+        'age': data.age,
+        'gender': data.gender,
+        'professions': data.professions,
+        'phone': data.phone,
+        'email': data.email,
+        'maritalStat': data.maritalStat,
+        'address': {
+          'road': data.address.road,
+          'number': data.address.number,
+          'region': data.address.region,
+          'city':data.address.city,
+          'country': data.address.country
+        }
+      })
+    }
 
 }

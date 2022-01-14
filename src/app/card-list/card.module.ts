@@ -19,6 +19,7 @@ import { FormComponent } from './form/form.component';
 import { TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router, RouterModule } from '@angular/router';
+import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +33,6 @@ export function createTranslateLoader(http: HttpClient) {
     FormComponent
   ],
   imports: [
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule,
@@ -47,18 +47,18 @@ export function createTranslateLoader(http: HttpClient) {
     MatGridListModule,
     BrowserModule,
     HttpClientModule, 
-    
-    RouterModule
+    SweetAlert2Module,
+    RouterModule,
   ],
   exports: [
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    CommonModule,
     FormsModule,
     ReactiveFormsModule,
     TranslateModule, 
-    RouterModule
+    RouterModule,
+    
 
   ]
 })

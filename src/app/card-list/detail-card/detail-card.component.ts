@@ -29,7 +29,6 @@ export class DetailCardComponent implements OnInit {
     const intString = Number(cardId)
     this.myaccount = this.accountService.getDataId(intString)
     console.log(this.myaccount)
-    
   }
 
 }

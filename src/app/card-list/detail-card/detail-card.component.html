@@ -1,5 +1,6 @@
 <div class="my-5">
     <mat-card class="example-card">
+      <button mat-raised-button color="primary"type="submit" [routerLink]="['/edit']" routerLinkActive="router-link-active" >Edit</button> 
       <mat-card-content>
           <h2>{{myaccount.name}}</h2>
           <p>ID Number: {{myaccount.id}}</p>
@@ -13,7 +14,7 @@
 
     </mat-card-content>
       <mat-card-actions>
-        
+
       </mat-card-actions>
     </mat-card>
   </div>

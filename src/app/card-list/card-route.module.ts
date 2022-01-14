@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TranslateModule } from '@ngx-translate/core';
@@ -14,13 +15,17 @@ const routes: Routes = [{
   component: DetailCardComponent
 },
 {
+  path: 'edit/:id',
+  component: FormComponent
+},
+{
   path: 'adduser',
   component: FormComponent
 }
 ];
 
 @NgModule({
-    imports: [RouterModule.forChild(routes)],
+    imports: [RouterModule.forChild(routes),CommonModule],
     exports: [RouterModule,
       TranslateModule
     ]

@@ -1,12 +1,13 @@
 <div class="row">
     <div class="col-xs-12 col-md-8 col-md-offset-2">
 
-      <button mat-raised-button color="primary"type="submit">Back</button> 
+      <button mat-raised-button color="primary"type="submit" [routerLink]="['/list']" routerLinkActive="router-link-active" >Back</button> 
       <select #langSelect (change)="translate.use(langSelect.value)">
         <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
       </select>
       <h1>{{ 'form.add_user' | translate }} </h1>
-        <form [formGroup]="userForm" (ngSubmit)="onCreateAccount()">
+      <!-- form begin -->
+        <form [formGroup]="userForm" (ngSubmit)="onCreateAccount()"  >
         
             <mat-form-field class="mx-5" [style.width.%]=100 >
               <mat-label>{{ 'form.name' | translate }}</mat-label>
@@ -53,7 +54,7 @@
               <input matInput placeholder="{{ 'form.email' | translate }} "type="string" appearance="fill" formControlName="email">
               <span
               *ngIf="!userForm?.get('email')?.valid && userForm?.get('email')?.touched" class="help-block"
-              > Email
+              > Please enter valid email
               </span>
             </mat-form-field>
 
@@ -145,6 +146,11 @@
             >{{ 'form.submit' | translate }}</button> 
             <br>
           </form>
+
+
+          <!-- <ng-container *swalPortal="swalTargets.confirmButton">
+            Send ({{ secondsLeft }} seconds left)
+          </ng-container> -->
     </div>
 </div>
 
