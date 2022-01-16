@@ -17,9 +17,7 @@ export class CardListComponent implements OnInit {
     console.log(this.accounts)
   }
 
-
-  cekData= 'ééédfsééé'
-
+  filteredName = this.accountsService.filteredName
   // onUpdateAllStatus(status:string){
   //   this.accountsService.updateAllStatus(status)
   // }

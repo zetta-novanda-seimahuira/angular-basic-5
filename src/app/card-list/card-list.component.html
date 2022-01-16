@@ -1,14 +1,18 @@
 <!-- <app-form></app-form> -->
 
-<div>{{cekData  | charPipe}}</div>
 <div class="mat-app-background">
     <div class="container">
-      <div class="row">
-        <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <div class="row"> 
+        <div class="col-xs-12 col-md-8 col-md-offset-2"> 
+          <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Search </mat-label>
+            <input matInput placeholder="Search.." [(ngModel)]="filteredName">
+          </mat-form-field>
+          <hr>
           <button mat-raised-button color="primary" routerLink="/list/adduser">Add User</button>
           <hr>
           <app-card
-            *ngFor="let acc of accounts; let i = index"
+            *ngFor="let acc of accounts | filter: filteredName: 'name'; let i = index" 
             [account]="acc"
             [id]="i"
             routerLink="/detail/{{acc.id}}"

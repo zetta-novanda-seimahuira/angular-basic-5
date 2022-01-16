@@ -42,6 +42,24 @@ export class AccountsService {
               country: 'Australia',
           }
         },
+        {
+          id: 12345777,
+          name: 'ab',
+          age: 29,
+          gender: 'Female',
+          professions: 'teacher',
+          maritalStat: 'married',
+          phone:432244348,
+          email:'i@mail.com',
+          address: 
+            {
+              road: 'Sagittis Road',
+              number: 5,
+              region: 'Ríos',
+              city: 'sidney',
+              country: 'Australia',
+          }
+        },
       ];
 
       account(userData){
@@ -49,6 +67,8 @@ export class AccountsService {
         this.accounts.push(userData)
       }
     }
+
+    filteredName = '';
 
     updateAccount(userData: any, id:number) {
         this.accounts[id] = userData

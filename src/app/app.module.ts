@@ -23,6 +23,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
+
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
 }
@@ -33,6 +34,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // CardListComponent,
     // CardComponent,
     HomeComponent,
+
   ],
   imports: [
     BrowserModule,

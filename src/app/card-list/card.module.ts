@@ -21,6 +21,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { Router, RouterModule } from '@angular/router';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { characterPipe } from '../character.pipe';
+import { FilterPipe } from '../filter.pipe';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -32,7 +33,8 @@ export function createTranslateLoader(http: HttpClient) {
     CardComponent,
     DetailCardComponent,
     FormComponent,
-    characterPipe
+    characterPipe,
+    FilterPipe
   ],
   imports: [
     FormsModule,
