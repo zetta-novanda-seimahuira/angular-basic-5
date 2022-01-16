@@ -1,9 +1,9 @@
 <div class="my-5">
   <mat-card class="example-card">
-    <mat-card-title>{{account.name }}</mat-card-title>
+    <mat-card-title>{{account.name | uppercase}}</mat-card-title>
     <mat-card-content>
       <p>Age : {{account.age}}</p>
-      <p>Gender  : {{account.gender}}</p>
+      <p>Gender  : {{account.gender | lowercase}}</p>
     </mat-card-content>
   </mat-card>
 </div>

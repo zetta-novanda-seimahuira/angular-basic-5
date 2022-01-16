@@ -40,7 +40,7 @@ export class FormComponent implements OnInit  {
               }
   
   userForm: FormGroup;
-  genders = ['male', 'female'];
+  genders = ['Male', 'Female'];
   statusForm:string
   accountId:number
   
