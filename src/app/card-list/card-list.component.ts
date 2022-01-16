@@ -5,7 +5,6 @@ import { AccountsService } from '../account.service';
   selector: 'app-card-list',
   templateUrl: './card-list.component.html',
   styleUrls: ['./card-list.component.css'],
-  providers: [AccountsService]
 })
 export class CardListComponent implements OnInit {
 

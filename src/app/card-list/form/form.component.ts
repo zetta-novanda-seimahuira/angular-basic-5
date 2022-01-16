@@ -15,11 +15,14 @@ import Swal from 'sweetalert2';
   selector: 'app-form',
   templateUrl: './form.component.html',
   styleUrls: ['./form.component.css'],
-  providers: [AccountsService]
+ 
 })
 export class FormComponent implements OnInit  {
  
   dataComponent :any;
+  submitted = false;
+  
+
   // @Output() accountAdded = new EventEmitter<{name: string, status: string}>();
   constructor(
               private accountService: AccountsService,
@@ -39,11 +42,16 @@ export class FormComponent implements OnInit  {
   userForm: FormGroup;
   genders = ['male', 'female'];
   statusForm:string
-
+  accountId:number
+  
 
   ngOnInit(){
-
-
+    const cardId = this.route.snapshot.paramMap.get('id');
+    let intString = Number(cardId)
+    this.accountId = intString
+    
+    const data = this.accountService.getDataId(intString)
+    
     this.userForm = new FormGroup({
       'id': new FormControl(null, Validators.required),
       'name': new FormControl(null, Validators.required),
@@ -62,15 +70,33 @@ export class FormComponent implements OnInit  {
       })
     })
 
+    if (cardId) {
+      this.updateAccount()
+    }
+
     this.userForm.statusChanges.subscribe(
       (status) => console.log(status)
     )
   }
+
     onCreateAccount() {
       if(this.userForm.valid){
-        this.accountService.account(this.userForm.value);
-        Swal.fire('Success')
-        console.log(this.statusForm);
+        console.log(this.accountId);
+        
+        if (this.accountId !== 0) {
+          console.log(this.accountService.accounts);
+          let indexArr = this.accountService.accounts.map((acc) => acc.id).indexOf(this.accountId);
+  
+          this.accountService.updateAccount(this.userForm.value, indexArr)
+          console.log('account id  =' + this.accountId);
+          Swal.fire('edit Account Success')
+          console.log(this.statusForm);
+        } else {
+          this.accountService.account(this.userForm.value);
+          Swal.fire('Add Account Success')
+          console.log(this.statusForm);
+        }
+        // this.userForm.reset()
       } else {
         Swal.fire({
           icon: 'error',
@@ -83,7 +109,7 @@ export class FormComponent implements OnInit  {
     console.log(this.accountService.accounts);
   }
 
-    updateAccount() {
+    private updateAccount() {
       const cardId = this.route.snapshot.paramMap.get('id');
       const intString = Number(cardId)
       const data = this.accountService.getDataId(intString)

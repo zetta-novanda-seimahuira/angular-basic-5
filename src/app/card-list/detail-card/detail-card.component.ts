@@ -6,7 +6,7 @@ import { AccountsService } from 'src/app/account.service';
   selector: 'app-detail-card',
   templateUrl: './detail-card.component.html',
   styleUrls: ['./detail-card.component.css'],
-  providers: [AccountsService]
+
 })
 export class DetailCardComponent implements OnInit {
 
@@ -22,13 +22,12 @@ export class DetailCardComponent implements OnInit {
   ngOnInit(): void {
     this.getData()
   }
-  myaccount
+  myaccount:any
 
   getData(){
     const cardId = this.route.snapshot.paramMap.get('id');
     const intString = Number(cardId)
     this.myaccount = this.accountService.getDataId(intString)
-    console.log(this.myaccount)
   }
 
 }
