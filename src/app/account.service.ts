@@ -44,9 +44,9 @@ export class AccountsService {
         },
         {
           id: 12345777,
-          name: 'ab',
+          name: 'Mr. Arya Purnama',
           age: 29,
-          gender: 'Female',
+          gender: 'Male',
           professions: 'teacher',
           maritalStat: 'married',
           phone:432244348,
